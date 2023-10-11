@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="D:\Zomato\zomato_images\zomato.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zomato</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+
+    *,
+    *::before,
+    *::after {
+      padding: -15px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    /* ================= VARIABLE ================ */
+    :root {
+      --primary-color: hsl(0, 4%, 5%);
+      --primary-color-alt: hsl(300, 3%, 8%);
+      --second-color: #f4f7fcdc;
+      --second-color-alt: hsla(240, 87%, 3%, 0.849);
+      --third-color: hsl(240, 85%, 3%);
+      --white-color: #fbfbfb;
+      --white-color-alt: hsl(0, 6%, 7%);
+      --dark-color: #f4f7fcdc;
+    }
+
+    /* ================= BASE ==================== */
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .bx {
+      font-size: 2.5rem;
+    }
+
+    .container {
+      padding: 0 2rem;
+    }
+
+    /* -- BODY -- */
+    body {
+
+      font-size: 1rem;
+      background-color: var(--white-color);
+      scroll-behavior: smooth;
+    }
+
+    /* ================= HEADER ================ */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--dark-color);
+      padding: 1rem 2rem;
+    }
+
+    .company-logo {
+      padding-bottom: 20px;
+      font-size: 3.0rem;
+      font-weight: 1000;
+      background: -webkit-linear-gradient(120deg,
+          var(--primary-color-alt),
+          var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-items {
+      display: flex;
+    }
+
+    .nav-item {
+      margin: 1rem 2rem;
+      padding-left: 50px;
+      padding-top: 20px;
+    }
+
+    .nav-link {
+
+      font-size: 1.8rem;
+      letter-spacing: 0.05rem;
+      position: relative;
+      background: -webkit-linear-gradient(var(--primary-color-alt),
+          var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link::before {
+      content: "";
+      background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+      width: 100%;
+      height: 0.05rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 150ms;
+    }
+
+    .nav-link:hover::before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .bx-menu,
+    .bx-x {
+      cursor: pointer;
+      background: -webkit-linear-gradient(120deg,
+          var(--primary-color-alt),
+          var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: none !important;
+    }
+
+    /* ================= MAIN ================ */
+
+    /* -------- HOME SECTION -------------- */
+    .section-1 {
+      background-color: var(--dark-color);
+      display: grid;
+    }
+
+    /* .home-computer-container {} */
+
+    .slogan .company-title {
+      background: -webkit-linear-gradient(120deg,
+          var(--primary-color-alt),
+          var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .slogan .company-slogan {
+      background: -webkit-linear-gradient(120deg,
+          var(--primary-color-alt),
+          var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.8rem;
+    }
+
+    /* -------- OFFER SECTION ------------- */
+    .section-2 {
+      margin: 2rem 0;
+    }
+
+    .offer {
+      background-color: var(--dark-color);
+      margin: 1rem 0;
+      display: grid;
+    }
+
+    .offer img {
+      background-color: var(--dark-color);
+      padding: 2rem 0;
+    }
+
+    .offer-1 img {
+      background-color: var(--dark-color);
+      padding: 3rem 0;
+    }
+
+    .offer-description {
+      background-color: var(--white-color-alt);
+      padding: 0 1rem;
+    }
+
+    .offer-description .offer-title {
+      color: var(--second-color);
+      font-size: 1.8rem;
+      font-weight: 400;
+      padding: 1.5rem 0 0.5rem 0;
+    }
+
+    .offer-description .offer-hook {
+      color: var(--second-color-alt);
+      font-size: 1.2rem;
+    }
+
+    .offer-description .cart-btn {
+      cursor: pointer;
+      color: var(--second-color-alt);
+      font-size: 1.1rem;
+      display: grid;
+      place-items: center;
+      margin: 2rem 0 1rem 0;
+      width: 10rem;
+      height: 3rem;
+      background-image: linear-gradient(to top,
+          var(--primary-color-alt),
+          var(--primary-color));
+    }
+
+    .offer-description .cart-btn:hover {
+      background-image: linear-gradient(to bottom,
+          var(--primary-color-alt),
+          var(--primary-color));
+    }
+
+    /* -------- PRODUCT SECTION ----------- */
+    .section-3 {
+      display: grid;
+      place-items: center;
+      justify-content: space-around;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+    }
+
+    .product {
+      cursor: pointer;
+      background-color: var(--white-color-alt);
+      position: relative;
+    }
+
+    .product::before {
+      content: "";
+      background-image: linear-gradient(to bottom,
+          hsla(29, 72%, 83%, 0.438),
+          hsla(9, 94%, 61%, 0.507));
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .product_add_cart {
+      color: var(--white-color-alt);
+      font-size: 1.2rem;
+      background-color: hsl(9, 94%, 65%);
+      padding: 1rem 0.4rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 300ms, color 300ms, box-shadow 300ms;
+    }
+
+    .product_add_cart:hover {
+      color: var(--white-color);
+      box-shadow: 0 1rem 0 -0.5rem hsl(17, 79%, 65%, 0.7),
+        0 2rem 0 -1rem hsla(17, 79%, 65%, 0.65);
+    }
+
+    /* -------- SPONSOR SECTION ----------- */
+    .section-4 {
+      margin: 90rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .sponsor img {
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+
+
+
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+
+    .sponsor img:hover {
+      /* filter: grayscale(0); */
+      opacity: 1;
+    }
+
+    /* ========= SUBSCRIBE SECTION ========== */
+    .section-5 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .subscribe-input-label {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.05rem;
+      color: var(--second-color);
+    }
+
+    input[type="text"] {
+      padding: 0 0.5rem;
+      font-size: 1.1rem;
+      width: 100%;
+      height: 3rem;
+      border: none;
+      background-color: hsl(220, 33%, 90%);
+      color: var(--second-color-alt);
+      transition: background-color 300ms;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      background-color: hsl(220, 33%, 95%);
+    }
+
+    input[type="text"]::placeholder {
+      color: var(--second-color-alt);
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      background-image: linear-gradient(to top,
+          var(--primary-color-alt),
+          var(--primary-color));
+      color: var(--white-color-alt);
+      margin: 1rem 0;
+      border: none;
+      width: 100%;
+      height: 3rem;
+      font-size: 1.2rem;
+      transition: color 300ms;
+    }
+
+    input[type="submit"]:hover {
+      background-image: linear-gradient(to bottom,
+          var(--primary-color-alt),
+          var(--primary-color));
+      color: var(--white-color);
+    }
+
+    /* =============== FOOTER =============== */
+    .top-footer {
+      background-color: var(--second-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-title {
+      font-weight: 500;
+      font-size: 1.2rem;
+      padding: 1rem 0;
+      background-image: -webkit-linear-gradient(120deg,
+          var(--primary-color-alt),
+          var(--primary-color));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-items h3 {
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 1.1rem;
+      padding: 0.1rem 0;
+      color: var(--white-color-alt);
+    }
+
+    .footer-items h3:hover {
+      text-decoration: underline;
+    }
+
+    .footer-items h3:last-child {
+      padding-bottom: 2rem;
+    }
+
+    .end-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--third-color);
+    }
+
+    .copyright {
+      color: var(--white-color-alt);
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .copyright b {
+      font-weight: inherit;
+      font-size: 0.9rem;
+    }
+
+    .designer {
+      color: hsla(0, 0%, 98%, 0.541);
+      padding-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .designer:hover {
+      text-decoration: underline;
+    }
+
+    /* =============== MEDIA QUERIES ======= */
+
+    @media screen and (max-width: 800px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      /* ================= HEADER ================ */
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .navbar {
+        background-color: var(--dark-color);
+        position: absolute;
+        top: 3.5rem;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 500ms;
+      }
+
+      .show-navbar {
+        display: flex;
+        transform: scaleY(1);
+        transform-origin: top;
+        transition: transform 300ms;
+      }
+
+      .nav-items {
+        display: flex;
+        flex-direction: column;
+        padding-top: 200px;
+      }
+
+      .nav-item {
+        margin: 1rem 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .bx-menu {
+        display: block !important;
+      }
+
+      .show-bx {
+        display: block !important;
+      }
+
+      .hide-bx {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 800px) {
+      header {
+        padding: 1rem 5rem;
+      }
+
+      /* ================= MAIN ================ */
+
+      /* -------- HOME SECTION -------------- */
+      .section-1 {
+        justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
+        padding: 10rem 5rem 0 5rem;
+      }
+
+      .slogan .company-title {
+        max-width: 30rem;
+        font-size: 1.8rem;
+        letter-spacing: 0.5rem;
+      }
+
+      .slogan .company-slogan {
+        max-width: 20rem;
+        font-size: 1.3rem;
+      }
+
+      /* -------- OFFER SECTION ------------- */
+      .section-2 {
+        margin: 2rem 5rem;
+      }
+
+      .offer {
+        margin: 5rem 0;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-rows: auto auto;
+      }
+
+      .offer-1 {
+        grid-template-areas: "offer-1-img offer-desc-1";
+      }
+
+      .offer-1 img {
+        background-color: var(--dark-color);
+        padding: 2rem 0;
+      }
+
+      .offer-2 {
+        grid-template-areas: "offer-desc-2 offer-2-img";
+      }
+
+      .offer-1-img {
+        grid-area: offer-1-img;
+      }
+
+      .offer-2-img {
+        grid-area: offer-2-img;
+      }
+
+      .offer-desc-1 {
+        grid-area: offer-desc-1;
+      }
+
+      .offer-desc-2 {
+        grid-area: offer-desc-2;
+      }
+
+      .offer-description .offer-title {
+        font-size: 1.9rem;
+        padding: 1.5rem 0 0.5rem 0;
+      }
+
+      .offer-description .offer-hook {
+        max-width: 30rem;
+      }
+
+      .offer-description {
+        background-color: var(--white-color-alt);
+        padding: 2rem 1rem;
+      }
+
+      .offer-description .offer-title {
+        padding: 0.5rem 0 1rem 0;
+      }
+
+      .offer-description .cart-btn {
+        margin: 2rem 0 0.5rem 0;
+      }
+
+      /* -------- PRODUCT SECTION ----------- */
+      .section-3 {
+        gap: 5rem;
+      }
+
+      .product::before {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 300ms;
+      }
+
+      .product:hover::before {
+        transform: scaleY(1);
+        transform-origin: top;
+        transition: transform 300ms;
+      }
+
+      .product_add_cart {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+
+      .product:hover .product_add_cart {
+        transform: translate(-50%, -50%) scaleY(1);
+        transform-origin: top;
+      }
+
+      /* -------- SPONSOR SECTION ----------- */
+      .section-4 {
+        margin: 5rem 0;
+      }
+
+      /* ========= SUBSCRIBE SECTION ========== */
+      .section-5 {
+        padding: 1rem 0;
+      }
+
+      .section-5 .subscribe-container {
+        display: flex;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        padding: 0 1rem;
+        width: 15rem;
+      }
+
+      input[type="submit"] {
+        width: 10rem;
+      }
+
+      /* =============== FOOTER =============== */
+      .top-footer {
+        flex-direction: row;
+        justify-content: space-around;
+        padding-bottom: 8rem;
+        padding-top: 2rem;
+      }
+
+      .footer-title {
+        font-size: 1rem;
+        padding: 1rem 0;
+      }
+
+      .footer-items h3 {
+        font-size: 0.9rem;
+      }
+
+      .end-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--third-color);
+      }
+
+      .copyright {
+        color: hsla(0, 0%, 98%, 0.747);
+        padding: 1rem 0;
+        font-size: 0.8rem;
+      }
+
+      .copyright b {
+        font-size: 0.7rem;
+      }
+
+      .designer {
+        color: hsla(0, 0%, 98%, 0.322);
+        font-size: 0.8rem;
+      }
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f1f3f8;
+      color: #b8b3b3dc;
+      border-color: #d8d5d5;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0px;
+    }
+
+    .button:hover {
+      background-color: #0039b302;
+    }
+
+    .a {
+      font-size: 12px;
+      margin-left: 70px;
+
+    }
+
+    .ct1 {
+      margin-left: 65px;
+      padding-top: 130px;
+      position: absolute;
+      left: 0px;
+      top: 440px
+    }
+
+    .ps {
+      padding-left: 70px;
+      margin-top: 20px;
+      width: 100%;
+      height: 100px;
+      position: sticky;
+      top: 0px;
+      left: 5px;
+      background-color: rgb(249, 251, 253);
+
+    }
+
+    /*==============-cards===============*/
+    .body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 140vh;
+
+    }
+
+    .card {
+      width: 300px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      margin-right: 10px;
+      /* Add margin to separate cards horizontally */
+      margin-top: 20px;
+    }
+
+    img {
+      width: 30%;
+      height: auto;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .l1 {
+      margin-left: 70px;
+    }
+
+    .b {
+
+      background-color: green;
+      color: #f0f0f0;
+      border-radius: 5px 5px 5px 5px;
+
+    }
+
+    .ab {
+      text-align: center;
+
+    }
+
+    .kQDQPR:first-child {
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+
+    .kQDQPR:last-child {
+      margin-right: 0px;
+      padding-right: 0px;
+    }
+
+    .kQDQPR {
+      width: max-content;
+      min-width: 100%;
+      display: flex;
+
+      position: relative;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      background-color: transparent;
+      overflow-x: auto;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    user agent stylesheet section {
+      display: block;
+    }
+
+    div,
+    p,
+    span {
+      font-size: 1.6rem;
+    }
+
+    body,
+    button,
+    input,
+    input::placeholder {
+      font-family: Okra, Helvetica, sans-serif;
+    }
+
+    body,
+    button,
+    textarea,
+    input,
+    input::-webkit-input-placeholder {
+      font-family: Okra, Helvetica, sans-serif;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-size: 62.5%;
+      font-weight: 300;
+      box-sizing: border-box;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .kQDQPR::-webkit-scrollbar {
+      display: none;
+    }
+
+    .HdArZ {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .hLPjgx {
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      max-height: 100%;
+      margin-right: 1.5rem;
+      cursor: pointer;
+    }
+
+    div,
+    p,
+    span {
+      font-size: 1.6rem;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-size: 62.5%;
+      font-weight: 300;
+      box-sizing: border-box;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .search {
+      font-size: larger;
+
+    }
+    *, *::before, *::after {
+    padding: -15px;
+    margin: 0px;
+    FONT-VARIANT-EAST-ASIAN: JIS78;
+    FONT-VARIANT: JIS83;
+    /* box-sizing: border-box; */
+}
+.coqQHd {
+    font-weight: 500;
+    font-size: 2rem;
+}
+div, p, span {
+    font-size: 1.6rem;
+}
+*, :after, :before {
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+.fnlJUZ {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.ktGdJs {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin: 0.3rem 1rem;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: rgb(239, 79, 95);
+}
+*, :after, :before {
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+user agent stylesheet
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.hLPjgx {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    max-height: 100%;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+div, p, span {
+    font-size: 1.6rem;
+}
+body, button, input, input::placeholder {
+    font-family: Okra, Helvetica, sans-serif;
+}
+body, button, textarea, input, input::-webkit-input-placeholder {
+    font-family: Okra, Helvetica, sans-serif;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+*, :after, :before {
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+*, :after, :before {
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+.img{
+    width: 100%;
+    height: auto;
+}
+.card .img {
+    width: 200px; /* Adjust the width as per your requirements */
+    height: 200px; /* Adjust the height as per your requirements */
+  }
+  .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-item {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .footer-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-items h3 {
+            margin: 5px 0;
+        }
+
+        /* Media query for responsive layout */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .footer-item {
+                flex: 1;
+                margin: 10px 0;
+            }
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-item {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .footer-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-items h3 {
+            margin: 5px 0;
+        }
+
+        /* Media query for responsive layout */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .footer-item {
+                flex: 1;
+                margin: 10px 0;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-items {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .ps {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .a {
+            text-align: center;
+            background-size: cover;
+            padding: 50px 0;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                flex-direction: column;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .nav-item {
+                margin: 0;
+                padding: 10px 0;
+            }
+
+            .ps {
+                flex-direction: column;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-logo img {
+            width: 150px; /* Adjust the logo size as needed */
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search {
+            margin-right: 10px;
+        }
+
+        .nav-items {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+            }
+
+            .nav-items {
+                flex-direction: column;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .nav-item {
+                margin: 0;
+                padding: 10px 0;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .sponsor {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .sponsor img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .ab {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .sponsor {
+                width: 100%;
+            }
+        }
+        .navbar {
+    background-color: #333; /* Change this to your desired background color */
+    color: white; /* Text color */
+  }
+
+  .navbar .search {
+    padding: 10px;
+  }
+
+  .navbar .search input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff; /* Background color of the input */
+    color: #333; /* Text color of the input */
+  }
+
+  .navbar .search input[type="search"]::placeholder {
+    color: #666; /* Placeholder text color */
+  }
+  body {
+      font-family: Arial, sans-serif;
+    }
+
+    .top-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-item {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .footer-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-items h3 {
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-item {
+        flex-basis: 25%;
+      }
+    }
+    </style>
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="company-logo" style="font-family: Arial Black; font-size: 40px;">
+      <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" sizes="-50%">
+    </div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <div class="search">
+          <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <form class="d-flex">
+
+                <input class="form-control me-2" type="search" placeholder="Search for restaurant, cuisine or a dish"
+                  aria-label="Search" size="60">
+
+              </form>
+            </div>
+          </nav>
+        </div>
+    </nav>
+    <li class="nav-item"><a href="#" class="nav-link"></a></li>
+    <li class="nav-item"><a href="#" class="nav-link"></a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">singup</a></li>
+    </ul>
+    </nav>
+    
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <nav class="navbar">
+        <ul class="nav-items">
+
+          <section role="tablist" class="sc-1y3q50z-1 kQDQPR">
+            <div id="tablink_clnl5k1twmxem2cs31ppb4iit__0" class="sc-1y3q50z-3 hLPjgx sc-fjYKiF cDWiLi" tabindex="0"
+              role="tab">
+              <h2 id="tablink_clnl5k1twmxem2cs31ppb4iit__0" class="sc-dln2kl-0 sc-1y3q50z-5 ktGdJs sc-fjYKiF cDWiLi"
+                tabindex="-1">
+                <div class="sc-jjbLbC bsJoBO">
+                  <div height="3rem" width="100%" class="sc-s1isp7-1 kQLPLg sc-NGAnU kUNpWg">
+                    <div src="" class="sc-s1isp7-3 cVOEqG"></div><img alt="illustration"
+                      src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png?output-format=webp"
+                      loading="lazy" class="sc-s1isp7-5 jQwYOW">
+                  </div>
+                </div>
+                <div selected="" class="sc-gnEqpY xtKfi">Delivery</div>
+              </h2>
+              <hr class="sc-1y3q50z-4 cdVGts">
+            </div>
+            <div id="tablink_clnl5k1twmxem2cs31ppb4iit__1" class="sc-1y3q50z-3 hLPjgx sc-fjYKiF cDWiLi" tabindex="0"
+              role="tab">
+              <h2 id="tablink_clnl5k1twmxem2cs31ppb4iit__1" class="sc-dln2kl-0 sc-1y3q50z-5 jPTnRn sc-fjYKiF cDWiLi"
+                tabindex="-1">
+                <div class="sc-jjbLbC gsNjmH">
+                  <div height="3rem" width="100%" class="sc-s1isp7-1 kQLPLg sc-NGAnU kUNpWg">
+                    <div src="" class="sc-s1isp7-3 cVOEqG"></div><img alt="illustration"
+                      src="https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png?output-format=webp"
+                      loading="lazy" class="sc-s1isp7-5 jQwYOW">
+                  </div>
+                </div>
+                <div class="sc-gnEqpY xtKfi">Dining Out</div>
+              </h2>
+              <hr class="sc-1y3q50z-4 dsSqud">
+            </div>
+            <div id="tablink_clnl5k1twmxem2cs31ppb4iit__2" class="sc-1y3q50z-3 hLPjgx sc-fjYKiF cDWiLi" tabindex="0"
+              role="tab">
+              <h2 id="tablink_clnl5k1twmxem2cs31ppb4iit__2" class="sc-dln2kl-0 sc-1y3q50z-5 jPTnRn sc-fjYKiF cDWiLi"
+                tabindex="-1">
+                <div class="sc-jjbLbC gsNjmH">
+                  <div height="3rem" width="100%" class="sc-s1isp7-1 kQLPLg sc-NGAnU kUNpWg">
+                    <div src="" class="sc-s1isp7-3 cVOEqG"></div><img alt="illustration"
+                      src="https://b.zmtcdn.com/data/o2_assets/01040767e4943c398e38e3592bb1ba8a1616150142.png?output-format=webp"
+                      loading="lazy" class="sc-s1isp7-5 jQwYOW">
+                  </div>
+                </div>
+                <div class="sc-gnEqpY xtKfi">Nightlife</div>
+              </h2>
+              <hr class="sc-1y3q50z-4 dsSqud">
+            </div>
+          </section>
+          
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ps">
+      <button class="button" id="button1"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+          viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <path
+            d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z" />
+        </svg> Filter</button>
+      <button class="button" id="button1">Rating 4.0+</button>
+      <button class="button" id="button2">pure veg</button>
+      <button class="button" id="button3">Cuisines</button>
+    </div>
+    <!-- SPONSOR group 1 -->
+    <div class="a">
+      <h1>Eat what makes you happy</h1>
+    </div>
+    <section class=" container section-4">
+
+      <div class="sponsor sponsor-1">
+        <div><img alt="image" src="https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">Biryani</div>
+      </div>
+      <div class="sponsor sponsor-2">
+        <div><img alt="image" src="https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">Burger</div>
+      </div>
+
+      <!-- SPONSOR group 2 -->
+      <div class="sponsor sponsor-3">
+      
+        <div><img alt="image" src="https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">Chicken</div>
+      </div>
+      <div class="sponsor sponsor-3">
+        <div><img alt="image" src="https://b.zmtcdn.com/data/o2_assets/2f34540e0b12058f5f8b9390c3a3fb4a1648972281.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">Shawarma</div>
+      </div>
+      <div class="sponsor sponsor-4">
+        <div><img alt="image" src="https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">Pizza</div>
+      </div>
+      <div class="sponsor sponsor-5">
+        <img alt="image" src="https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png" loading="lazy"
+          class="sc-s1isp7-5 fyZwWD">
+        <div class="ab">Thali</div>
+      </div>
+      </div>
+
+    </section>
+    <section class="container section-4">
+      <!-- SPONSOR group 1 -->
+      <h1 class="ct1">Top brands for you</h1>
+      <div class="sponsor sponsor-1">
+        <div><img alt="Mehfil"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/d76be28e0885f4563a1dbaf3a45f4b74_1635882663.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          Mehifil<br>
+          31 mim
+        </div>
+      </div>
+      <div class="sponsor sponsor-2">
+        <div><img alt="Pista House"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/0f13b4a115d1420b049835a5b2037a46_1649660664.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pista House<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 53 min
+        </div>
+      </div>
+
+      <!-- SPONSOR group 2 -->
+      <div class="sponsor sponsor-3">
+        <div><img alt="Cream Stone Ice Cream"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/cba530e2b1d8439cd4170fef9b3f1d51_1635882104.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          Cream Stone Ice Cream<br>
+          18 min
+        </div>
+      </div>
+      <div class="sponsor sponsor-4">
+        <div><img alt="Pizza Hut"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/c38f7540bcc5a38e918856ac06409056_1504531339.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          Pizza Hut<br>
+          33 min
+        </div>
+      </div>
+      <div class="sponsor sponsor-3">
+        <div><img alt="Burger King"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/6a11fd0f30c9fd9ceaff2f5b21f61d23_1617187971.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          Burger King<br>
+          36 min
+        </div>
+      </div>
+      <div class="sponsor sponsor-4">
+        <div><img alt="Chicken Shawarma Hub"
+            src="https://b.zmtcdn.com/data/brand_creatives/logos/ba94b195842b792733c7b471fa9be8d3_1582290055.png"
+            loading="lazy" class="sc-s1isp7-5 fyZwWD"></div>
+        <div class="ab">
+          Chicken Shawarma Hub<br>
+          25 min
+        </div>
+      </div>
+    </section>
+    <h1 class="l1">Delivery Restaurants in Khairatabad</h1>
+    <section class="body">
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\2019-12-13.jpg" alt="Card Image 2" class="img"">
+        <div class="content">
+          <h2>Cream Stone Ice... &nbsp;&nbsp;<button class="b">4.0 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>Ice Cream,Desserts .&nbsp;&nbsp;&nbsp;&nbsp;420 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\IMG_20200205_213704.jpg" alt="Card Image 2" class="img">
+        
+        <div class="content">
+          <h2>Mehfil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="b">4.0 <svg
+                xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>Biryani, Chinese, Kebab,<br> Mughlai,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+
+        </div>
+      </div>
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\2023-03-01.jpg" alt="Card Image 3" class="img">
+        <div class="content">
+          <h2>Magnolia Bakery&nbsp;&nbsp;&nbsp;&nbsp;<button class="b">4.0 <svg xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>Bakery, Desserts .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\WhatsApp Image 2021-01-03 at 8.21.39 PM (2).jpeg" alt="Card Image 1" class="img">
+        <div class="content">
+          <h2>MS Mandi....&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button
+              class="b">4.0 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>This is the content .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\9967cc2f2bd2f3d03fc2c741929b042f_o2_featured_v2.avif" alt="Card Image 2" class="img">
+        <div class="content">
+          <h2>Subhan Bakery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="b">4.0
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>Bakery, Desserts, , Fast Food .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="D:\html&css\gavaskar\zomato\images\2023-05-07.jpg" alt="Card Image 3"class="img">
+        <div class="content">
+          <h2>RedBucket Biryani.<button class="b">4.0 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+              </svg></button></h2>
+          <p>This is the content .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;220 For one<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19min
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+  <footer>
+    <div class="container top-footer">
+      <!-- footer item 1 -->
+      <div class="footer-item">
+        <h1>ZOMATO</h1>
+        <h2 class="footer-title"> ABOUT ZOMATO</h2>
+        <div class="footer-items">
+          <h3>Who We Are</h3>
+          <h3>Blog</h3>
+          <h3>Work With Us</h3>
+        </div>
+      </div>
+      <!-- footer item 2 -->
+      <div class="footer-item">
+        <h1> </h1>
+        <h2 class="footer-title">ZOMAVERSE</h2>
+        <div class="footer-items">
+          <h3>Zomato</h3>
+          <h3>Blinkit</h3>
+          <h3>Feeding India</h3>
+          <h3>Hyperpure</h3>
+          <h3>Zomaland.</h3>
+        </div>
+      </div>
+      <!-- footer item 3 -->
+      <div class="footer-item">
+        <h2 class="footer-title">FOR RESTAURANTS</h2>
+        <div class="footer-items">
+          <h3>Zomato For Enterprise</h3>
+          <h3>App for you</h3>
+          <h3>Feeding India</h3>
+          <h3>App for you</h3>
+          <h3>App for you</h3>
+        </div>
+      </div>
+      <!-- footer item 4 -->
+      <div class="footer-item">
+        <h2 class="footer-title">LEARN MORE</h2>
+        <div class="footer-items">
+          <h3>Report Fraud</h3>
+          <h3>Press Kit</h3>
+          <h3>Contact Us</h3>
+          <h3>Feeding India</h3>
+          <h3>App for you</h3>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+      
+</body>
